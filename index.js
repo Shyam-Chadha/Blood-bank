@@ -105,7 +105,7 @@ app.post("/login", function (req, res) {
   });
 });
 
-app.get("/elegibility",function(req,res){
+app.get("/eligibility",function(req,res){
     res.render("eligibility");
 });
 
