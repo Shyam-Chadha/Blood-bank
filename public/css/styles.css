@@ -114,3 +114,15 @@ section {
   background-size: 100% 100%;
 }
                                 /* Eligibility.ejs End */
+
+@media (max-width:900px) {
+  .main_img{
+    width: 90%;
+  }
+} 
+
+@media (max-width:670px) {
+  .main_img{
+    width: 90%;
+  }
+} 
