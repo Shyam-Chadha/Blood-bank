@@ -11,6 +11,7 @@
     "lodash": "^4.17.21",
     "md5": "^2.3.0",
     "mongoose": "^6.6.6",
+    "mongoose-unique-validator": "^3.1.0",
     "nodemon": "^2.0.15",
     "passport": "^0.5.3",
     "passport-local": "^1.0.0",

@@ -3,6 +3,7 @@ const express = require("express");
 const bodyparser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require("mongoose");
+var uniqueValidator = require('mongoose-unique-validator')
 const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
@@ -37,7 +38,7 @@ try {
 }
 
 const userSchema = new mongoose.Schema({
-    username:String,
+  username:String,
   blood_group:String,
   pincode:String,
   phone:String,
@@ -46,6 +47,7 @@ const userSchema = new mongoose.Schema({
 });
 
 userSchema.plugin(passportLocalMongoose);
+userSchema.plugin(uniqueValidator);
 
 const User = new mongoose.model("User", userSchema);
 
@@ -111,7 +113,7 @@ app.get("/eligibility",function(req,res){
 
 app.get("/journey", function (req, res) {
     if (req.isAuthenticated()) {
-      res.render("journey");
+      res.render("journey" , {title:req.user.username});
     } else {
       res.redirect("/login");
     }

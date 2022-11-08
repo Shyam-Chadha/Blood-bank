@@ -25,6 +25,21 @@
   text-decoration: none;
 }
 
+.nav-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+}
+
+.username{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: lightblue;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
                                    /* Header End    */
                                    /* Footer Start  */
 
