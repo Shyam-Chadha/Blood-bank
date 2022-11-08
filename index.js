@@ -49,6 +49,10 @@ const userSchema = new mongoose.Schema({
   pincode:String,
 });
 
+const donorSchema = new mongoose.Schema({
+  
+})
+
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(uniqueValidator);
 
