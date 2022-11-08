@@ -40,10 +40,12 @@ try {
 const userSchema = new mongoose.Schema({
   username:String,
   blood_group:String,
-  pincode:String,
-  phone:String,
   password:String,
-  address:String
+  phone:String,
+  flatno:String,
+  addline1:String,
+  state:String,
+  pincode:String,
 });
 
 userSchema.plugin(passportLocalMongoose);
