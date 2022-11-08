@@ -108,7 +108,9 @@ app.post("/login", function (req, res) {
 });
 
 app.get("/eligibility",function(req,res){
-    res.render("eligibility");
+  // if (req.isAuthenticated()) {
+    res.render("eligibility" , {title:req.user.username});
+  // }
 });
 
 app.get("/journey", function (req, res) {
