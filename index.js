@@ -58,7 +58,7 @@ const donorSchema = new mongoose.Schema({
   },
   disease:String,
   otherdisease:String,
-  tatoo:Boolean,
+  tatoo:String,
   age:String,
   drinking:String,
   smoking:String,
@@ -136,10 +136,10 @@ app.get("/eligibility",function(req,res){
 });
 
 app.post("/eligibility", function (req, res) {
-  const Donor = new donorModel({
+  const donor = new Donor({
     user: req.user._id,
     disease: req.body.DISEASES,
-    otherdisease:req.bodyOTHER_DISEASE.toUpperCase(),
+    otherdisease:req.body.OTHER_DISEASE.toUpperCase(),
     tatoo: req.body.TATOO,
     age: req.body.AGE_GROUP,
     drinking: req.body.DRINKING,
@@ -148,7 +148,7 @@ app.post("/eligibility", function (req, res) {
     vaccinated: req.body.VACCINATED
   });
 
-  Donor.save(function (err) {
+  donor.save(function (err) {
     if (err) {
       console.log(err);
     } else {
