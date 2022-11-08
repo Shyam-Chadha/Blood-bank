@@ -9,6 +9,7 @@ const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const lodash = require("lodash");
 const path = require("path");
+const bodyParser = require("body-parser");
 
 const app = express();
 
@@ -50,13 +51,27 @@ const userSchema = new mongoose.Schema({
 });
 
 const donorSchema = new mongoose.Schema({
-  
-})
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    required: true,
+    ref: "User",
+  },
+  disease:String,
+  otherdisease:String,
+  tatoo:Boolean,
+  age:String,
+  drinking:String,
+  smoking:String,
+  donatedbefore:String,
+  vaccinated:String
+});
 
 userSchema.plugin(passportLocalMongoose);
 userSchema.plugin(uniqueValidator);
 
 const User = new mongoose.model("User", userSchema);
+
+const Donor = new mongoose.model("Donor", donorSchema);
 
 passport.use(User.createStrategy());
 
@@ -76,7 +91,7 @@ app.post("/register", function (req, res) {
   User.register({ username: username,blood_group:blood_group,pincode:pincode,phone:phone,address:address  }, password, (err, user) => {
     if (err) {
       console.log(err);
-      res.redirect("/");
+      res.redirect("/error");
     } else {
       passport.authenticate("local")(req, res, () => {
         res.redirect("/login");
@@ -120,6 +135,28 @@ app.get("/eligibility",function(req,res){
   // }
 });
 
+app.post("/eligibility", function (req, res) {
+  const Donor = new donorModel({
+    user: req.user._id,
+    disease: req.body.DISEASES,
+    otherdisease:req.bodyOTHER_DISEASE.toUpperCase(),
+    tatoo: req.body.TATOO,
+    age: req.body.AGE_GROUP,
+    drinking: req.body.DRINKING,
+    smoking: req.body.SMOKING,
+    donatedbefore: req.body.DONATED_BEFORE,
+    vaccinated: req.body.VACCINATED
+  });
+
+  Donor.save(function (err) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.redirect("/");
+    }
+  });
+});
+
 app.get("/journey", function (req, res) {
     if (req.isAuthenticated()) {
       res.render("journey" , {title:req.user.username});
@@ -134,8 +171,8 @@ app.get("/addressbook" , function(req,res){
 });
 
 app.get("/error",function (req,res) {
-  res.sendFile(path.join(__dirname + "/public/error.html"));
-})
+  res.sendFile(path.join(__dirname + '/public/error.html'));
+});
 
 let port = process.env.PORT;
 if (port == null || port == "") {

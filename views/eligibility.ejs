@@ -36,13 +36,10 @@
         <div class="row">
           <div class="col-md-12">
             <form action="/eligibility" method="POST" class="elegibility_form">
-              <div class="col-md-6 pt-4">
-                <div>
+              <!-- <div class="col-md-6 pt-4">
                   <input type="text" name="name" class="form-control" placeholder="NAME" />
-                </div>
               </div>
-              <div class="col-md-6 pt-4">
-                <div>
+              <div class="col-md-6 pt-4">             
                   <select name="blood" class="form-control" required>
                     <option value="">Blood Group</option>
                     <option value="A-">A-</option>
@@ -54,8 +51,7 @@
                     <option value="O+">O+</option>
                     <option value="AB+">AB+</option>
                   </select>
-                </div>
-              </div>
+              </div> -->
               <div>
                 <div class="col-md-6 pt-4">
                   <select name="DISEASES" class="form-control" required>
@@ -74,7 +70,7 @@
               </div>
               <div class="col-md-6 pt-4">
                 <div>
-                  <input type="text" name="OTHER DISEASE" class="form-control" placeholder="OTHER DISEASE." />
+                  <input type="text" name="OTHER_DISEASE" class="form-control" placeholder="OTHER DISEASE." />
                 </div>
               </div>
               <div>
@@ -88,7 +84,7 @@
               </div>
               <div>
                 <div class="col-md-6 pt-4">
-                  <select name="AGE GROUP" class="form-control" required>
+                  <select name="AGE_GROUP" class="form-control" required>
                     <option value="">AGE GROUP</option>
                     <option value="ABOVE 18">ABOVE 18</option>
                     <option value="ABOVE 30">ABOVE 30</option>
@@ -120,14 +116,13 @@
               </div>
               <div>
                 <div class="col-md-6 pt-4">
-                  <select name="DONATED BEFORE" class="form-control" required>
+                  <select name="DONATED_BEFORE" class="form-control" required>
                     <option value="">DONATED BEFORE</option>
                     <option value="YES">YES</option>
                     <option value="NO">NO</option>
                   </select>
                 </div>
-              </div>
-              <div>
+              </div>             
                 <div class="col-md-6 pt-4">
                   <select name="VACCINATED" class="form-control" required>
                     <option value="">VACCINATED</option>
@@ -135,9 +130,8 @@
                     <option value="SINGLE DOSE">SINGLE DOSE</option>
                     <option value="NO">NO</option>
                   </select>
-                </div>
-              </div>
-              <div>
+                </div>             
+              <!-- <div>
                 <div class="col-md-6 pt-4">
                   <select name="PIERCING" class="form-control" required>
                     <option value="">PIERCING</option>
@@ -145,7 +139,7 @@
                     <option value="NO">NO</option>
                   </select>
                 </div>
-              </div>
+              </div> -->
               <div class="pt-4 pb-4">
               <button class="btn btn-info" type="submit">
                 SUBMIT
