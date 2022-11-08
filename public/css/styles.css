@@ -120,6 +120,10 @@ section {
 .contentvideo video{
   filter:brightness(50%);
 }
+
+.main_img{
+  width: 90%;
+}
                                   /* Index.ejs End */
                                   /* Eligibility.ejs Start */
 
@@ -130,7 +134,7 @@ section {
 }
                                 /* Eligibility.ejs End */
 
-@media (max-width:900px) {
+/* @media (max-width:900px) {
   .main_img{
     width: 90%;
   }
@@ -140,4 +144,4 @@ section {
   .main_img{
     width: 90%;
   }
-} 
+}  */
