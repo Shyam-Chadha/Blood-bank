@@ -8,6 +8,7 @@ const session = require("express-session");
 const passport = require("passport");
 const passportLocalMongoose = require("passport-local-mongoose");
 const lodash = require("lodash");
+const path = require("path");
 
 const app = express();
 
@@ -127,6 +128,10 @@ app.get("/journey", function (req, res) {
 app.get("/addressbook" , function(req,res){
   res.render("Addressbook");
 });
+
+app.get("/error",function (req,res) {
+  res.sendFile(path.join(__dirname + "/public/error.html"));
+})
 
 let port = process.env.PORT;
 if (port == null || port == "") {
