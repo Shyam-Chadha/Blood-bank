@@ -134,3 +134,22 @@ section {
   padding-left: 3%;
 }
                                 /* Eligibility.ejs End */
+                                /*Donors.ejs Start */
+
+.all_donors {
+  list-style: none;
+  padding: 0;
+  margin: 1%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 3em;
+}
+
+.donor {
+  margin: 5%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+                               /*Donors.ejs End */
